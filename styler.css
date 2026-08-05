@@ -358,6 +358,10 @@ a{ color: inherit; }
 .btn-row{
   margin-top: 40px;
   text-align: center;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .btn{
   display: inline-block;
@@ -396,6 +400,15 @@ a{ color: inherit; }
   border-color: var(--highlighter);
   color: var(--highlighter);
 }
+.btn-outline{
+  background: transparent;
+  color: var(--chalkboard);
+  border-color: var(--chalkboard);
+}
+.btn-outline:hover, .btn-outline:focus-visible{
+  background: var(--chalkboard);
+  color: var(--chalk);
+}
 
 /* ===== Galeri ===== */
 .gallery-grid{
@@ -406,15 +419,72 @@ a{ color: inherit; }
 }
 .photo-tile{
   aspect-ratio: 4/3;
-  display:flex;
-  align-items:flex-end;
-  padding: 16px;
-  color: var(--chalk);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
   border-radius: 2px;
   box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+  overflow: hidden;
 }
+.photo-tile img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Jadwal Piket ===== */
+.piket-title{ margin-top: 56px; }
+.piket-row{
+  display: flex;
+  gap: 22px;
+  margin-top: 32px;
+  overflow-x: auto;
+  padding-bottom: 14px;
+}
+.piket-day-col{
+  flex: 0 0 auto;
+  width: 230px;
+  text-align: center;
+}
+.piket-day{
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  color: var(--highlighter);
+  margin-bottom: 16px;
+}
+.photocard-group{
+  background: var(--chalk);
+  padding: 14px 16px 20px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+  text-align: left;
+}
+.photocard-photo{
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg,#4a6fa5,#2c4a3a);
+}
+.photocard-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.photocard-heading{
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.photocard-list{
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink);
+  line-height: 1.9;
+  padding-left: 20px;
+}
+.piket-row::-webkit-scrollbar{ height: 8px; }
+.piket-row::-webkit-scrollbar-thumb{ background: var(--highlighter); border-radius: 4px; }
+.piket-row::-webkit-scrollbar-track{ background: rgba(247,247,242,0.1); }
 
 /* ===== Pengumuman (sticky notes) ===== */
 .sticky-grid{
@@ -486,6 +556,7 @@ a{ color: inherit; }
   .id-card-grid{ grid-template-columns: repeat(2, 1fr); }
   .gallery-grid{ grid-template-columns: repeat(2, 1fr); }
   .sticky-grid{ grid-template-columns: 1fr; }
+  .piket-day-col{ width: 190px; }
   .footer-inner{ flex-direction:column; }
   .footer-note{ align-self:flex-start; }
 }
@@ -493,19 +564,3 @@ a{ color: inherit; }
 @media (prefers-reduced-motion: reduce){
   *{ transition: none !important; }
 }
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
